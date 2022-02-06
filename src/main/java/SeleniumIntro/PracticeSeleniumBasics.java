@@ -29,7 +29,7 @@ public class PracticeSeleniumBasics {
         driver.navigate().back();
         driver.navigate().back();
         driver.navigate().refresh();
-        driver.quit();
+        driver.close();
 
 
     }
