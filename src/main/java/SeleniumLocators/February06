@@ -1,0 +1,144 @@
+OBJECTIVES FOR TODAY:
+ *Students will be able to learn
+    -the history/improvement of Selenium
+    -types of selenium
+    -how to create a selenium project
+    -identify the terms MAVEN,POM...
+    -how to implement codes for selenium.
+SELENIUM : WHAT IS SELENIUM:
+Selenium is an automation tool. It automates only web application(facebook,amazon,ebay....)--> anything that runs through web browsers(chrome, firefox,Microsoft Edge, Safari etc...)
+INTERVIEW QUESTION:WHAT IS THE ADVANTAGES AND DISADVANTAGES OF THE SELENIUM?
+SELENIUM DISADVANTAGES:(LIMITATION)
+1)Selenium cannot automate the captcha(if we cannot automate the captcha then how are we going to create our automation --> Dev Env- QA- Stage- Production.During QA environment they will disable the captcha for your automation)
+2)Selenium cannot automate the pictures(Applitools can automate the picture)
+3)Selenium has no call center
+4)Selenium has no reporting system(TESTNG,CUCUMBER HTML REPORT)
+5)Selenium automates only web application not mobile, desktop application.
+SELENIUM ADVANTAGES:
+1)Selenium is free and open source tool(there is no company constantly(periodically) improving the application.Community(everyone) is contributing))
+2)Selenium supports multiple browsers(Chrome,Safari...)
+3)Selenium supports multiple coding language.(java,Ruby,C#,Phyton,javascript)
+INTERVIEW QUESTIONS:CAN YOU TALK LITTLE BIT ABOUT THE TYPES OF SELENIUM AND WHY SPECIFICALLY YOU CHOOSE [your answer should selenium webdriver]?
+1-Selenium RC(Remote Control):The application is stored in the server and automation is happening in the erver.(it is not used anymore)-->merged with selenium webdriver to selenium 2;
+2-Selenium IDE(Integrated Development Environment): is primarily record/run tool.
+The reason I am not using IDE anymore because it is not reliable, and also it doesn't wait my elements from website to be loaded.
+3-Selenium WebDriver: it is a library that we can add to our project(java project) and start using the ready class.
+4-Selenium Grid:it will help us to run our automation script(project) in different server.
+    10000-->60-80 hours. in different web browser 4 -->180-240
+    This is also called paralell testing.
+    15 hours will take to finish.
+    2500
+    2500
+    2500
+    2500
+    10000--> microsoft edge
+    10000 -- >chrome
+    10000 -->safari
+    10000 -->explorer
+    WHAT IS MAVEN AND POM ?
+    HOW TO CREATE A SELENIUM PROJECT:
+    STEP1:Open intelliJ and click File-->New -->Project
+    STEP2:pick MAVEN from the list(on the left) and Click Next then GIve a proper name for the projectname then click finish.
+    STEP3:Delete the test folder since it is for unit testing.
+     WHAT IS MAVEN: Maven is a tool which is used for building and managing java based project.
+     *in Maven, a dependecy is just another archive(java,zip and so on) which our current project needs in order to compile,build,test,and run..
+     **If these  dependencies are not present in the local repository, then Maven will download them from a remote repository for your local machine.
+     POM:(Project Object Model):
+     every dependency(librar, tools will go under the pom.xml file.)
+    STEP4:Add selenium to the project.--> Create a dependencies under pom.xml file--> Go to the MVNrepository website for the dependency-->Find the Selenium 4.0.0 and click or copy all the dependencies from the box.-->go to your intelliJ and paste this under <dependencies which we created.-->Click the m sign top right.
+    STEP5:If you do not have google chrome go and type google chrome download on the google. and install it.(for people who don't have google chrome)
+    STEP6:Selenium is a driver of the car but we need a key to start the engine.Key will be our CHROME.exe or other keys like geckodriver(firefox);
+    Interview Questions: DO you know the the driver for Firefox ?
+                         What do you use as a driver for Google Chrome?
+    Step7:Search for the "dowload chrome.exe for selenium"--> Download the chrome.exe after you check the version of the chrome.--> and download the proper one.
+    Step8: Once you download the chrome.exe then copy->paste under the Project(seleniumB11 mine).
+    RECAP:
+    -We learned the history of the SELENIUM;
+    -We learned how to setup selenium to our computer
+    -We learned the terminology of selenium (like maven, pom, dependency)
+    -We learned how to use methods of driver.(get, navigate to, back,forward, close, getpagesource,gettitle, quit, getcurrenturl)
+    INTERVIEW QUESTIONS:
+    1-What is the difference between driver.get() - driver.navigate.to():
+        *To be honest there is not really much difference between them.But i think these 2 differences are major:
+        - First difference is I would definetely say LOADING time for the element. Driver.get() method waits all elements to be loaded.Unlike driver.get(), driver.navigate to doesn't wait for all elements to be loaded.
+        -Second difference is driver.navigate has methods(like forward, back,refresh,to)
+     2)What is the difference between driver.quit() -driver.close();
+        *In my project I generally use DRIVER.QUIT()to make sure I close all the tabs after the automation.(it closes all the tabs)
+        *driver.close()-->it closes the CURRENT PAGE(tab).
+     RECAP:
+     1)Setup
+     2)pom.xml --> stores the dependency
+     3)mvn repository-->it is a place that contains all the repositories
+     4)chrome.exe --> because it is a key for the car. without this chrome will
+     not launch.
+        firefox-->gechodriver.exe--> this is for firefox
+     5)System.setProperty("webdriver.chrome.driver","chromedriver")
+        WebDriver driver= new ChromeDriver(); (good)
+        ChromeDriver driver =new ChromeDriver(): (good)
+        WebDriver driver = new WebDriver();-->it is not possible
+     6)Driver Methods:
+        -driver.get()-->it navigates to the website.but it waits for the all elements to be loaded
+        -driver.navigate --> to, forward, back, refresh --> it doesn't wait for the all elements to be loaded and it has methods(difference between get and navigate()))
+        -driver.getCurrentUrl-->it returns String and gives you the url of the page.
+        -driver.getTitle()-->it returnts String and gives you the title of the page
+        -driver.GetPageSource-->it returns the string and gives you the html of the page
+        -driver.manage.window.maximize()-->it maximizes your page.
+        -driver.findElement();
+        LOCATORS:
+        We have 8 types of locators:
+        1)ID-->it gives you more accurate location.(id="techtorial1");
+        2)ClassName
+        3)Name
+        4)TagName
+        5)LinkText
+        6)PartialLinkText
+        7)XPATH
+        8)CSS
+    NOTE:The purpose of the locators it to find the unique element and manipulate the data(change).
+    NOTE:If you provide wrong path for the webelement.It will throw an exception which is called "NoSuchElementException"
+    INTERVIEW QUESTION:What is StaleelementReference exception and in what condition do you get it. How do you handle it ?
+    NOTE:StaleElementReferenceException:we can get stalereferenceexception when the element was on the page buy my driver is not able to see the element anymore.
+        1-The element values is updated(like attribute)
+            button id ="tec2" when you click this button it updates id (dynamic)
+            Webelement button  =driver.findElement(By.id="tec2");
+            button.click();
+            id="tec3"
+        2-The page is refreshed.
+        3-After navigating to the other page, if you come back to original and use the same element that you stored before(like java) it will throw this exception.
+    HOW Can you handle it:
+    *you should reinitiliazed the webelement one more time.
+NOTE:
+    XPATH is the most advance way of finding the elements.
+    //TAGNAME[@AttributeName='AttributeValue'];
+    WE have 2 types of XPATH:
+     first type: Absolute Xpath:it stars with the single slash(/) and it goes from all the way top to bottom.(/carinventory/car/brand[1])
+     ([parent-child relationship])
+     /Springfield--> /USA/IL/Chicago/RogesPark[2]
+     SECOND TYPE : RELATIVE XPATH:
+     Is the most common xpath that people use and there could be parent-child relationship for relative as well but it mostly focuses on the direct child.
+       //TAGNAME[@AttributeName='AttributeValue'];
+RECAP SELENIUM LOCATORS:
+INTERVIEW QUESTIONS: HOW MANY LOCATORS DO YOU HAVE IN SELENIUM WHICH ONE DO YOU USE THE MOST AND WHY ?
+1)ID --> ATTRIBUTE IS ID
+2)CLASSNAME-->ATTRIBUTE IS CLASS
+3)NAME --> ATTRIBUTE IS NAME
+4)TAGNAME --> ATTRIBUTE IS TAGNAME (//TAGNAME)
+5)LINKTEXT --> ANCHOR(A)
+6)PARTIALLINKTEXT (ANCHOR A)
+7)XPATH (// SPECIAL SIGN) ____I USE THE XPATH, AND ID THE MOST
+8)CSS
+INTERVIEW QUESTION 2:
+WHAT IS THE TYPE OF XPATH AND WHICH ONE DO YOU USE THE MOST ?
+    -ABSOLUTE XPATH; PARENT-CHILD AND SINGLE SLASH(/)
+    -RELATIVE XPATH: IT MOSTLY FOCUS ON THE DIRECT CHILD AND DOUBLE SLASH.
+
+
+WEBELEMENTS METHODS:
+    1).click()-->it clicks the <a>tag and button
+    2).getText()-->it gets the text of the element
+    3).sendKeys()-->it sends the keys to input are(it should typeable)
+    4).isSelected()-->it checks that the box is selected or not
+    5).isDisplayed()-->it checks thaty the box is there or not(visible);
+
+    driver.findElements--> it finds the element
+
