@@ -12,7 +12,7 @@ SELENIUM DISADVANTAGES:(LIMITATION)
 1)Selenium cannot automate the captcha(if we cannot automate the captcha then how are we going to create our automation --> Dev Env- QA- Stage- Production.During QA environment they will disable the captcha for your automation)
 2)Selenium cannot automate the pictures(Applitools can automate the picture)
 3)Selenium has no call center
-4)Selenium has no reporting system(TESTNG,CUCUMBER HTML REPORT)
+4)Selenium has no reporting system(TestNG,CUCUMBER HTML REPORT)
 5)Selenium automates only web application not mobile, desktop application.
 SELENIUM ADVANTAGES:
 1)Selenium is free and open source tool(there is no company constantly(periodically improving the application.Community(everyone) is contributing))

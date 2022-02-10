@@ -12,7 +12,7 @@ SELENIUM DISADVANTAGES:(LIMITATION)
 1)Selenium cannot automate the captcha(if we cannot automate the captcha then how are we going to create our automation --> Dev Env- QA- Stage- Production.During QA environment they will disable the captcha for your automation)
 2)Selenium cannot automate the pictures(Applitools can automate the picture)
 3)Selenium has no call center
-4)Selenium has no reporting system(TestNG,CUCUMBER HTML REPORT)
+4)Selenium has no reporting system(TESTNG,CUCUMBER HTML REPORT)
 5)Selenium automates only web application not mobile, desktop application.
 SELENIUM ADVANTAGES:
 1)Selenium is free and open source tool(there is no company constantly(periodically) improving the application.Community(everyone) is contributing))
@@ -131,14 +131,88 @@ INTERVIEW QUESTION 2:
 WHAT IS THE TYPE OF XPATH AND WHICH ONE DO YOU USE THE MOST ?
     -ABSOLUTE XPATH; PARENT-CHILD AND SINGLE SLASH(/)
     -RELATIVE XPATH: IT MOSTLY FOCUS ON THE DIRECT CHILD AND DOUBLE SLASH.
-
-
 WEBELEMENTS METHODS:
     1).click()-->it clicks the <a>tag and button
     2).getText()-->it gets the text of the element
     3).sendKeys()-->it sends the keys to input are(it should typeable)
     4).isSelected()-->it checks that the box is selected or not
-    5).isDisplayed()-->it checks thaty the box is there or not(visible);
+    5.isDisplayed()-->it checks thaty the box is there or not(visible);
 
     driver.findElements--> it finds the element
-
+    RECAP:
+    1-Driver Methods:
+     *.get()
+     *navigate. to/ refresh(), back(), forward()
+     *manage().window().maximize/minimize
+     *getCurrenctURl()
+     *getTitle()
+     *getPageSource
+     *close()
+     **findElements()-->**
+    2-WebElement Methods:
+    *getText()
+    *click() --> submit --> javascript you can use to click.
+    *sendKeys()
+    *isSelected()
+    *isDisplayed()
+    *isEnabled()
+    XPATH:
+           //tagName[@Attribute='Attribute Value'];
+           //Tagname[contains(text(),'textitself'))]
+             //tagname[.='exact Text']
+            //tagName[@class='ahmet' and @Attribute='mehmet']//it is showing me 2.
+    INTERVIEW QUESTION: what is the difference between findElement() and FindElements()
+    driver.findElement();
+    *focus on the one element
+    *once it fails it gives an exception.(noSuchElement,ElementIsnotIntercepted..)
+    *it RETURNS WebElement
+    driver.findElements();
+    *focus on the multiple elements
+    *once it fails it DOESN't throw an exception.It returns empty LIST.
+    *it RETURNS -LIST OF WEBELEMENT-
+    RECAP:
+    WebElement method: .getAttritube()--> It takes attribute name as a parameter
+    and it returns "VALUE" of the attribute.
+    *I use the getAttritube method whenever I need to getText when this text is combined with the Attribute. EX: Get the value of href
+    --> .getAttribute("href") --> returns the String of the value.
+    Driver.findELEMENTS()--> When we need to validate or get multiple elements
+    we use driver.findElements method which returns LIST<WEB ELEMENT>.
+        XPATH : //TAGNAME[@ATTRIBUTENAME='Attribute Value'];
+                //TAGNAME[contains(text(),'textvalue')]//piece of the text
+                //TAGNAME[.='textvalue']//looks for exact text
+                //TAGNAME[@ATTRIBUTENAME='Attribute Value' and @id='test1'];
+                 //*[contains(text(),'textvalue')]
+                //TAGNAME
+    INTERVIEW QUESTION: WHERE DO YOU GET YOUR DEPENDENCIES AND WHERE DO YOU STORE THEM IN YOUR PROJECT.(MAVEN)
+    MAVEN:--> is a management tool.it contains the project and POM.XML File
+    POM:-->Pom is a storage for our dependency
+    Dependecy--> it is a script that helps to upload our libraries from the
+    MVNREPOSITORY.
+                                                                            LEVEL 1
+------------------------------------------------------------------------------------
+                                                                            LEVEL 2:
+    TestNG:
+1)What is TESTNG
+    is a way to validate our test cases.(MOSTLY developers use it)
+2)Why do we need TESTNG?
+We can use the TEST annotation from the TESTNG tools.
+NOTE:Developers can use the TESTNG to write the unit testing. Testers is using the testNG to build the automation framework.
+3)What is the advantages of the TESTNG?
+We use TESTNG for report (TESTERS))
+We use ASSERTION in TESTNG to validate our tests.(FORGET IF STATEMENT FOR THE VALIDATION)
+NOTE:We should use dependecy for the TESTNG.This dependency will be stored inside the POM.XML file.This file comes from the MAVEN project.
+***********
+INTERVIEW QUESTION: HOW DOES TESTNG ORDER WORKS ?
+*IT WORKS WITH THE ASCENDING ORDER OF METHOD SIGNATURE
+INTERVIEW QUESTION 2: HOW DO YOU DECIDE THE ORDERS MANUALLY.
+I USE PRIORITY KEYWORD NEXT TO @TEST ANNOTATION
+@TEST -->Test annotation
+NOTE 1:
+If one of the @Test fails, the next Test will be still executed.(It means each Test
+Annotation is independent)
+NOTE 2:
+If one of the Assertion fails it will immediately stop for this TEST annotion.
+example:
+    Assert.asserequal(5,3);//actual and expected is not matching,it will fail.
+    Assert.assertequal(4,4);//this one will not be executed because of the first assertion fails.
+ONCE YOU GET DEPENDENCY FROM MVNREPOSITORY. REMOVE THE SCOPE FROM IT.(it means you do not limit the dependecy for the package)
