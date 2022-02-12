@@ -1,0 +1,80 @@
+2/12/2022(SATURDAY RECAP):
+Selenium Methods:
+
+    1-Driver methods  WebDriver driver = new ChromeDriver()
+        *findElement
+        *findElements
+        *navigate.to/back/refresh/forward
+        *getCurrentUrl
+        *GetPageSource
+        *GetTitle
+        *Get
+        *manage.windows.maximize
+        *manage.windows.minimize
+        *.close
+        *quit
+    2-WebElement methods
+        *Click
+        *SendKeys
+        *Attribute
+        *submit
+        *isDisplayed
+        *isSelected
+        *getText
+        *isEnabled
+    3)What is the difference between driver.findElement and driver.findElements():
+        *)find element focuses on single element
+        *)When it fails, it throws an exception(NoSuchElement Exception)
+        *)it returns webElement
+        Find elements: *it focuses on the multiple elements
+                        *when it fails, it doesn't throw any exception,it returns List of empty box
+                        *it returns List<webelement>
+    4)LOCATORS:
+     *Id
+     *Class
+     *Name
+     *ClassName
+     *TagName
+     *Xpath
+     *CSS
+     *LinkText
+     *partialLinkText
+     5)COMMON WAYS OF FINDING THE ELEMENTS:
+        *XPATH: //TagName[@Attribute='Attribute Value'];
+        *Contains: //TagName[containts(text(),'textvalue')]
+        *Exact Text: //Tagname[.='exact text']
+        *Parent-child;//h3/p
+        *Absoulute XPATH: /html/body/div[2]/a/p
+    6)What is the difference between ABSOLUTE and RELATIVE XPATH:
+        ABS:*single slash and focus on the top parent-to chil
+        REL: *double slash and focus on the child. -->this is more efficient
+    7)TesTNG:
+    *How do you order your methods in your framework with TestNG?
+    *I am using priority key word.
+        validation for our test cases in a good format.
+        *You can have multiple @Test annotations in same class.(you can do multiple validation)
+    8)Assert.assertEqual(actual, expected)--> validation
+    9)WHEN YOU HAVE A PROBLEM WITH YOUR TEST WHAT SHOULD I DO ?
+    *)STEP 1: I ALWAYS CHECK THE EXCEPTION TYPE THAT I HAVE(SCROOL UP YOUR CONSOLE AND LOOK FOR THE EXCEPTION KEY WORD)
+    *STEP 2: AFTER YOU KNOW YOUR EXCEPTION TYPE, GO AND FIND THE LINE OF PROBLEM BY CLICKING THE  BLUE NUMBER ON THE CONSOLE.
+        IF THE EXCEPTION IS NOSUCHELEMENTEXCEPTION:{
+        STEP3:CHECK YOUR PATH.(COPY IT AND PASTE IT ON THE WEBSITE THAT YOU INSPECTED)
+
+             IF IT IS STILL UNIQUE{
+                STEP4:GO AND MAXIMIZE YOUR SCREEN WITH driver.manage.window.maximize
+                    IF IT IS STILL NOT WORKING{
+                    STEP5:USE THREAD.SLEEP.(BEFORE AND AFTER THE FAILING ACTION)
+                    }
+              }
+         IF THE EXCEPTION IS STALEREFERENCEEXCEPTION{
+            STEP 4: REFRESH THE PAGE with driver.navigate.refresh
+            STEP 5:REINITILIAZE YOUR WEBELEMENT.
+         }
+        }
+        IF THE EXCEPTION IS ELEMENTISNOTINTERACTABLE EXCEPTION{
+            STEP4:PUT THREAD.SLEEP BEFORE AND AFTER YOU CLICK
+            STEP5:MAKE SURE THE ELEMENT HAS 'a' TAG.
+        }
+    HOMEWORK: GO TO THE OPTIONS, TEST THE SORT BUTTON FUNCTIONS:
+    1)ONCE YOU CLICK IT SHOULD BE ASCENDING ORDER
+    2)SECOND TIME CLICK IT SHOULD BE DESCENDING ORDER
