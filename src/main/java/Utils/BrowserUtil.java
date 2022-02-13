@@ -13,7 +13,7 @@ public class BrowserUtil {
             case "text":
                 select.selectByVisibleText(value);
                 break;
-            case "indext":
+            case "index":
                 select.selectByIndex(Integer.parseInt(value));
                 break;
             case "value":
@@ -22,7 +22,11 @@ public class BrowserUtil {
             default:
                 System.out.println("Method name is not available, use text, value or index for method name");
         }
-        // to use this method in another clas use this syntax:
+        // to use this method in another class use this syntax:
         // BrowserUtils.selectBy(passengerCount, "2", "value");
+    }
+
+    public static String getTextMethod(WebElement ss){
+        return ss.getText().trim();
     }
 }
