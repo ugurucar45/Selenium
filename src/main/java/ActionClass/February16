@@ -1,0 +1,20 @@
+2/16/2022
+Wednesday
+Actions:mouse and keyboard
+Actions actions = new Actions(driver);
+actions.
+    ***contextClick()-->right Click
+    **doubleClick()-->double Click
+    *ClickAndHold()-->ClickAndHold
+    *MoveToElement()-->It hover over the elementr
+    *DragAndDrop()-->Drag and drop the element
+    *release()-->use click and hold first then use release to release the element
+    *click()-->it clicks the element
+    *sendKeys-->it sends the keys
+    *movebyOffSet()-->it moves the element by coordinate x and y
+    **perform()-->it performs your actions from actions class.
+
+ KEYS:
+ //IMPORTANT NOTES ABOUT KEYS:
+        *Keys.ENTER or Keys.Return--> it presses ENTER BUTTON
+        *Keys.Arrow right/left/up/down

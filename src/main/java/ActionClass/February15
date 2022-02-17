@@ -1,0 +1,19 @@
+2/15/2022
+TUESDAY
+-ACTIONS:(mouse and keyboard)-->Actions is a class. We use actions class to perform
+mouse and keyboard actions.
+
+ INTERVIEW QUESTIONS: What is Action/Select class?
+                      What is the difference between Action and Select Class
+                      Can you talk the most useful or common Action methods
+                      Can you talk the most useful or common Select methods
+    Actions actions = new Actions(driver)
+    Select select = new Select(WebElement)
+    INTERVIEW QUESTION: *How do you right Click on the element by using Action class*****
+ actions.ContextClick().perform()--> it right clicks on web element
+ actions.MoveToElement().perform()--> It hovers over the web element
+ NOTE:If you are using actions class, you have to put perform at the end.(******)
+ actions.click().perform-->it clicks
+ webelement.click()-->it also clicks.
+ actions.sendKeys()-->it sends the key
+ webelement.sendKeys()-->it sends the keys as well

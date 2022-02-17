@@ -2,7 +2,10 @@ package ActionClass;
 
 import Utils.BrowserUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.checkerframework.checker.units.qual.A;
+import org.checkerframework.checker.units.qual.PolyUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -44,14 +47,86 @@ public class ActionClassMethods {
 
         List<WebElement> names = driver.findElements(By.tagName("h5"));
         List<WebElement> pictures = driver.findElements(By.xpath("//div[@class='figure']//img"));
-        List<String> expectedNames= Arrays.asList("name: user1","name: user2","name: user3");
-        for (int i=0;i<pictures.size();i++) {
+        List<String> expectedNames = Arrays.asList("name: user1", "name: user2", "name: user3");
+        for (int i = 0; i < pictures.size(); i++) {
             Thread.sleep(2000);
             actions.moveToElement(pictures.get(i)).perform();       //hover over here
             System.out.println(BrowserUtil.getTextMethod(names.get(i)));//get text here
-            Assert.assertEquals(BrowserUtil.getTextMethod(names.get(i)),expectedNames.get(i));
+            Assert.assertEquals(BrowserUtil.getTextMethod(names.get(i)), expectedNames.get(i));
         }
 
 
+    }
+
+    @Test
+    public void doubleClick() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.navigate().to("https://demo.guru99.com/test/simple_context_menu.html\"");
+        driver.manage().window().maximize();
+        WebElement doubleClickButton = driver.findElement(By.tagName("button"));
+        Actions actions = new Actions(driver);
+//        actions.doubleClick(doubleClickButton).perform();
+//        actions.doubleClick(driver.findElement(By.tagName("button")));
+
+        //RIGHT CLICK PRACTICE
+
+        WebElement elementLocator = driver.findElement(By.xpath("//*[@id=\"authentication\"]/span"));
+        actions.contextClick(elementLocator).perform();
+    }
+
+    @Test
+    public void moveByOffSet() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://the-internet.herokuapp.com/horizontal_slider");
+        driver.manage().window().maximize();
+        WebElement slider = driver.findElement(By.xpath("//input"));
+        Actions actions = new Actions(driver);
+        //x means --> horizontal
+        //y means --> vertical
+        actions.clickAndHold(slider).moveByOffset(0, 3).perform();
+    }
+
+    @Test
+    public void sliderPractice() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://the-internet.herokuapp.com/horizontal_slider");
+        driver.manage().window().maximize();
+        WebElement slider = driver.findElement(By.xpath("//input"));
+        WebElement range=driver.findElement(By.xpath("//span[@id='range']"));
+        String myRange="5";
+        while(!range.getText().trim().equals(myRange)){
+            Thread.sleep(1000);
+            slider.sendKeys(Keys.ARROW_RIGHT);
+        }
+    }
+    /*
+    TASK FOR STUDENTS:
+    1) navigate https://text-compare.com/
+    2)TYPE "Good Bye Keys"
+    3)copy paste other side
+    4)compare it
+     */
+    @Test
+    public void compareTask() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://text-compare.com/");
+        driver.manage().window().maximize();
+        WebElement left = driver.findElement(By.xpath("//*[@id=\"inputText1\"]"));
+        WebElement right=driver.findElement(By.xpath("//*[@id=\"inputText2\"]"));
+        Thread.sleep(1000);
+
+        Actions actions=new Actions(driver);
+        Thread.sleep(1000);
+        actions.click(left).doubleClick(left).sendKeys("Good Bye Keys").keyDown(org.openqa.selenium.Keys.CONTROL).sendKeys("c").perform();
+        actions.click(right).keyDown(Keys.CONTROL).sendKeys("v").perform();
+        WebElement button=driver.findElement(By.xpath("//*[@id='compareButton']/div"));
+        button.click();
+
+//        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"top\"]/tbody/tr/td[3]/pre/span")).getText(),
+//                driver.findElement(By.xpath("//*[@id=\"top\"]/tbody/tr/td[6]/pre/span")).getText());
     }
 }
