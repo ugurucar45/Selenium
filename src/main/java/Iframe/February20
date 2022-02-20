@@ -1,0 +1,66 @@
+2/20/2022
+Sunday
+JavascriptExecuter js= (JavascriptExecutor)driver;
+    js.executeScript("");
+    -->"return document.title"-->it gives the title
+    -->"(arguments[0].click()",element);--> it clicks the element
+    -->"arguments[0].scrollIntoView(true)"-->it scrolls down or up to find the element ***
+    -->"window.scrollTo"(xCord,yCord)-->it finds the element with it's location
+INTERVIEW QUESTIONS:How do you scroll down or up to the element?
+ANSWER: I definetely use scrollIntoView for JS
+        and sometimes I use the JS x and y coordinate of the element to scrool.(POINT CLASS)
+      Point point = element.getLocation();
+       point.getX();
+       point.getY();
+-->GetWindowHandle and GetWindowHandles
+-->STEPS: String mainpageid= driver.getWindowHandle();
+          Set<String> allwindows= driver.getWindowHandles();
+        for(String id:allwindows){
+            if(!id.equal(mainpage)){
+            driver.switchTo().window(id);
+            driver.close;
+            }
+        }
+        driver.switchTo().window(mainpage)
+INTERVIEW QUESTION:
+What is the difference between driver.quit()
+and driver.close()
+NOTES: Whenever you need to change your tabs or windows, always use getWindowHandle/getWindowHandles methods
+        -->Please check the BrowserUtils and understand how you can change the browsers
+INTERVIEW QUESTIONS:
+How do you switch your drivers from one tab to another ?
+How do you switch the tabs/windows in selenium?
+    In my project, I faced this kind of situation it means i needed to verify and validate some data from different tabs/windows. At this time, I used selenium method which is called getWindowHandle() and getWindowHandles()
+        Extra Explanation: First I created a browser utils for this and store my all PAGEID and also pageIDS from GetWindowHandles() --> then I iterate my all pageids to find the exact window/tabs I would like to go with TITLE OR URL.
+    IFRAME:
+    iframe is the html that inside another html.Driver can handle only 1 html at a time
+    If you want to handle the iframe, we should switch our driver into the iframe.
+    <html>
+        <title>
+        </title>
+        <body>
+        <p> Ahmet
+        <h1> Loves Selenium </h1>
+        <iframe>
+        <html>
+            <head>
+                <title>
+                </title>
+            </head
+        </html>
+        </iframe>
+        </body>
+    </html>
+-------------------------
+Ahmet --> navigate to website
+HTML --> No I am in html
+    -frame-top
+        -frame-left
+         <h1>left</h1> i am here right now
+        -frame-right
+         <h1>right</h1>
+        -frame-middle
+         <h1>middle</h1>
+    -frame-bottom
+    <h1>bottom</h1>
+HTML

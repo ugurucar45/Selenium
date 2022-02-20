@@ -1,0 +1,32 @@
+
+2/19/2022
+Saturday
+KEYS:
+ //IMPORTANT NOTES ABOUT KEYS:
+        *Keys.ENTER or Keys.Return--> it presses ENTER BUTTON(search)
+        *Keys.Arrow right/left/up/down-->sliders
+  JavaScript Executor:
+  JavascriptExecutor js = (JavascriptExecutor)driver;
+  js.executescript("")
+    -->"return document.title"-->it gives the title
+    -->"(arguments[0].click()",element);--> it clicks the element
+    -->"arguments[0].scrollIntoView(true)"-->it scrolls down or up to find the element
+    -->
+       Point location=element.getLocation();--> to get the location of the element
+       int xCord=location.getX();
+       int yCord=location.getY();
+       js.executeScript("window.scrollTo("+xCord+","+yCord+")"); -->scrool down or up
+       js.executeScript("window.scrollBy("+xCord+","+yCord+")");-->scrool down or up
+   WINDOW HANDLE() AND WINDOW HANDLES();
+   WebDriver driver= new ChromeDriver();
+   driver.get("webpage");
+   WebElement element= driver.findElement(By.id"ahmet");
+   element.click
+     If(there is a new tab after this click)--> you MUST change your driver to the new Tab
+     driver.getWindowHandle()-->it returns the String of the Page ID.
+       id=asf2534534ffdgfdg
+     driver.getWindowHandles()-->it returns the Set of String ID
+      id= asdasf55243423
+      id2= rsdrserewre45
+     NOTE: HOW Do you switch it ;
+       driver.switchTo.window(id of the page)

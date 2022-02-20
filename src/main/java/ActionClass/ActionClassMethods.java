@@ -4,10 +4,8 @@ import Utils.BrowserUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.checkerframework.checker.units.qual.A;
 import org.checkerframework.checker.units.qual.PolyUnit;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -128,5 +126,22 @@ public class ActionClassMethods {
 
 //        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"top\"]/tbody/tr/td[3]/pre/span")).getText(),
 //                driver.findElement(By.xpath("//*[@id=\"top\"]/tbody/tr/td[6]/pre/span")).getText());
+    }
+
+
+    @Test
+    public void MoveByOffSetPractice(){
+        //TASK
+        //By using move by off set and point class.
+        //Click Contact Us
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver= new ChromeDriver();
+        driver.get("http://www.techtorialacademy.com/");
+        WebElement contactUs=driver.findElement(By.xpath("//div[@class='navigation hidden-xs']//a[.='Contact Us']"));
+        Point coordinatesOfContactUs=contactUs.getLocation();
+        int xCoord=coordinatesOfContactUs.getX();
+        int yCoord=coordinatesOfContactUs.getY();
+        Actions actions = new Actions(driver);
+        actions.moveByOffset(xCoord,yCoord).click().perform();
     }
 }
