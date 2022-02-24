@@ -1,0 +1,39 @@
+RECAP:
+2/2/22
+INTERVIEW QUESTION:
+1)WHAT IS IFRAME AND WHAT ARE THE METHODS OF IFRAME?
+--> Html inside of another html.People use iframe to make sure they can give more protection for the specific data(advertisement,videos)
+    a)driver.switchTo.frame(WebElement);
+    b)driver.switchTo.frame(index);
+    c)driver.switchTo.frame(id or name );*****
+2)How do you find all the iframe in the DOM? // how do you find all the links in the DOM
+-->//iframe or //frame
+-->//a
+***3)How do you go to the main HTML?
+-->driver.switchTo().defaultContent();
+4)How do you go to the upper HTML?
+-->driver.switchTo().Parentframe();
+5)What will happen if you do not switch to the frame and sendKeys?
+-->NoSuchElement Exception.
+6)What will happen if you try to switch to the frame which is not exist?
+-->NoSuchFrameException
+ALERT/POPups:
+*Operation System Alert(OS pop up)--> We cannot handle OS alert using selenium
+  NOTE:Solution for this might be using ROBOT class. :)
+**HTML pop-ups--> We can find the element for the pop up and click/close it.
+**JavaScript pop-up-->We should use ALERT class to handle the javascript.This class
+has 4 methods to handle the alerts
+Alert interview Questions:
+1)how do you handle the alert in Selenium:
+-->If it is coming from HTML-->i just find the element and click/close it
+-->If it is coming from OS-->you cannot handle it in selenium
+-->if it is coming from JavaScript-->I need to use ALERT CLASS.
+2)How many different ways we can handle the JSalert?
+-->accept-->it clicks 'OK' button
+-->dismiss-->it clicks 'Cancel' button
+-->senKeys-->it sends the input to the alert pop-up
+-->GetText-->it gets the text of pop-up.
+3)Is Alert class or interface?
+--> Alert is a class.
+4)If you do not handle the alerts(pop-ups), what kind of exception do you get?
+--> UnhandledAlertException

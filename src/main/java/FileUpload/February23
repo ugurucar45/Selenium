@@ -1,0 +1,21 @@
+2/23/2022
+Wednesday
+RECAP:
+Alert is a class to handle the alert/popups
+1-Comes from the System--> Operation System popups-->We cannot handle the OS popups with
+the selenium.As much as I know from my search there is a robot class that handle OS popups.
+2-Comes from HTML-->HTML pop ups--> We can handle this popups by finding the elements and click/close.
+3-Comes from JS --> JS pop-ups-->We can handle this popups by using ALERT class.
+
+    -Alert alert = driver.switchTo().alert();
+        -alert.accept()-->it clicks "OK" button
+        -alert.dismiss()-->it clicks "Cancel" button
+        -alert.sendKeys()-->it sends the input to the pop-ups
+        -alert.getText()-->it gets the text of popups.
+INTERVIEW QUESTION:
+What is the difference between soft-assert and hard-Assert?
+***SOFT ASSERT is really useful when you need to execute all the test cases even though some of them fail.It will not stop your code and throw exceptions.
+NOTE:IT must come with SoftAssertAll() at the end,but disadvantage of using soft assert is it will not tell you the exact location(line) that is failing and type of exception.
+***HARD Assert will stop when the code is failing and it will not execute the next line of code.The disadvantage of Hard Assert
+is you will not be able to complete your all tests cases if there is a failure in your code, but the advantage of using Hard-assert is when your code fails,
+it will give you the name of exceptions and location(line) of the code failing.
