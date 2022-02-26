@@ -21,6 +21,6 @@ public class TestBase {
     @AfterMethod
     public void tearDown() {
         System.out.println("Im running after all each test");
-        driver.quit();
+       // driver.quit();
     }
 }

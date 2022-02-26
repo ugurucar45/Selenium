@@ -18,9 +18,9 @@ public class AdminPage {
     WebElement userRoles;
     @FindBy(id = "systemUser_employeeName_empName")
     WebElement employeeName;
-    @FindBy(xpath = "//input[@id='systemUser_userName")
+    @FindBy(xpath = "//input[@id='systemUser_userName']")
     WebElement username;
-    @FindBy(name="systemUser[status]")
+    @FindBy(name = "systemUser[status]")
     WebElement status;
     @FindBy(name = "systemUser[password]")
     WebElement password;
@@ -31,11 +31,12 @@ public class AdminPage {
 
     public void sendingAllInformationForEmployee() {
         addButton.click();
-        BrowserUtil.selectBy(userRoles,"Admin","text");
+        BrowserUtil.selectBy(userRoles, "Admin", "text");
         employeeName.sendKeys("Alice Duval");
         username.sendKeys("Deneme1234");
-        BrowserUtil.selectBy(status,"0","value");
+        BrowserUtil.selectBy(status, "0", "value");
         password.sendKeys("12345678");
         confirmPassword.sendKeys("12345678");
+        saveButton.click();
     }
 }

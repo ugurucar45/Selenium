@@ -1,0 +1,41 @@
+2/26/2022
+Saturday
+File Upload:
+INTERVIEW QUESTION:
+1)How do you upload file with selenium?
+  - Find the location of ChooseFile button
+  -Then you need to send the keys of location of the file you want to upload from your computer.(Mac-->right click and get info copy where parts)
+            (Windows-->right click properties and copy location)
+  -I need to add the name of file at the end.(like usa.png)
+      /Users/techtorial/Desktop/usa.png
+  -Then I need to find the location of upload button and then click.
+ 2)What is the difference between click() and submit()?
+    1)Click() method can come from different ways
+        -Action class
+        -WebElement
+        -Java Script
+        -Alert class
+    2)Click doesn't have any requirement as long as element is clickable.If element is not clickable-->Elementisnotinteractable
+    1)Submit() method comes from the only WebElement
+    2)Even thought element is not clickable, it will not throw any exception.
+    3***)TO BE ABLE TO USE SUBMIT() METHOD, IT MUST BE UNDER THE ***FORM*** TAG. and you should check also the type is button or submit.
+    SOFT ASSERT:
+    Soft assert is a way to validate the tests.I use the softAssert to make sure all of my test cases are executed even though some of the data is failing.
+    *At the end you MUST use ***** ASSERT.ALL*****.
+    *You need to create an object for softAssert
+            SoftAssert softassert= new SoftAssert
+            softassert.true,equal...                                    LEVEL 2
+    ===============================================================================\
+    WELCOME TO THE NEW PROFESSIONAL TESTING WORLD
+                                                                         LEVEL 3
+    PAGE OBJECT MODEL(WE WILL CREATE OUR FRAMEWORK)
+    It is a way to organize all the elements, pages, dependencies, tests...etc
+    in your project. Every page elements go to the different classes related with their page name, when we need these elements we call from the page class.
+    Using page object will help us to centralize the page element and changing locators for the element will be more easier and organized.
+    ======================================================================
+    PAGE OBJECT MODEL FLOW:
+    TO BE ABLE TO MAKE A FRAMEWORK WE HAVE TO ORGANIZE OUR PROJECT:
+    1-CREATE PAGES CLASSES UNDER PAGES PACKAGES : TO BE ABLE TO ACCESS EACH OF THE ELEMENTS AND METHODS OF THE PAGE.(for reference check the pages classes in your framework)
+    2-CREATE TESTS CLASSES UNDER TESTS PACKAGES: TO BE ABLE TO DO YOUR VALIDATION(ASSERTION).TEST CLASS SHOULD HAVE LESS CODE AND IMPORTANT IMPLEMENTATION(LIKE ASSERTION)
+    3-IF YOU ARE REPEATING SOME PARTS OF YOUR CODE, YOU CAN USE BEFOREMETHOD AND AFTERMETHOD ANNOTATION TO REDUCE AMOUNT OF CODES.
+        -WE CREATE TESTBASE CLASS.THIS CLASS SHOULD BE EXTENDED FROM TESTS CLASSES.
