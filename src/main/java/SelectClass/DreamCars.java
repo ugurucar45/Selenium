@@ -1,6 +1,6 @@
 package SelectClass;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class DreamCars {
@@ -30,13 +29,13 @@ public class DreamCars {
         WebElement makes = driver.findElement(By.xpath("//*[@id='makes']"));
         WebElement model = driver.findElement(By.xpath("//*[@id='models']"));
         WebElement button = driver.findElement(By.xpath("//*[@id='by-make-tab']/div/div[7]/button"));
-        BrowserUtil.selectBy(newCar, "new", "value");
-        BrowserUtil.selectBy(makes, "Volvo", "text");
-        BrowserUtil.selectBy(model, "volvo-s90", "value");
+        BrowserUtils.selectBy(newCar, "new", "value");
+        BrowserUtils.selectBy(makes, "Volvo", "text");
+        BrowserUtils.selectBy(model, "volvo-s90", "value");
         button.click();
 
         WebElement header = driver.findElement(By.xpath("//h1[contains(text(),'New Volvo S90 for sale')]"));
-        String actualHeader = BrowserUtil.getTextMethod(header);
+        String actualHeader = BrowserUtils.getTextMethod(header);
         String expectedHeader = "New Volvo S90 for sale";
         Assert.assertEquals(actualHeader, expectedHeader);
 
@@ -55,13 +54,13 @@ public class DreamCars {
         driver.manage().window().maximize();
 
         WebElement newCar = driver.findElement(By.xpath("//*[@id='make-model-search-stocktype']"));
-        BrowserUtil.selectBy(newCar, "New cars", "text");
+        BrowserUtils.selectBy(newCar, "New cars", "text");
 
         WebElement porsche = driver.findElement(By.xpath("//*[@id=\"makes\"]"));
-        BrowserUtil.selectBy(porsche, "Porsche", "text");
+        BrowserUtils.selectBy(porsche, "Porsche", "text");
 
         WebElement random = driver.findElement(By.xpath("//*[@id=\"models\"]"));
-        BrowserUtil.selectBy(random, "porsche-911", "value");
+        BrowserUtils.selectBy(random, "porsche-911", "value");
 
         WebElement button = driver.findElement(By.xpath("//*[@id=\"by-make-tab\"]/div/div[7]/button"));
         button.click();

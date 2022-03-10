@@ -1,19 +1,21 @@
 package com.test.orengehrm.pages;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class AdminPage {
     public AdminPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
+
     @FindBy(id = "btnAdd")
     WebElement addButton;
-
     @FindBy(id = "systemUser_userType")
     WebElement userRoles;
     @FindBy(id = "systemUser_employeeName_empName")
@@ -28,15 +30,44 @@ public class AdminPage {
     WebElement confirmPassword;
     @FindBy(className = "addbutton")
     WebElement saveButton;
+    @FindBy(xpath = "//tr//a[contains(@href,'saveSystemUser')]")
+    List<WebElement> allNames;
+    @FindBy(id="searchSysetmUser_userType")
+    WebElement userRoleBox;
+    @FindBy(id="searchBtn")
+    WebElement searchBox;
+    @FindBy (xpath = "//td[3]")
+    List<WebElement> alltheRoles;
 
     public void sendingAllInformationForEmployee() {
         addButton.click();
-        BrowserUtil.selectBy(userRoles, "Admin", "text");
+        BrowserUtils.selectBy(userRoles, "Admin", "text");
         employeeName.sendKeys("Alice Duval");
-        username.sendKeys("Deneme1234");
-        BrowserUtil.selectBy(status, "0", "value");
+        username.sendKeys("DenemeNews1");
+        BrowserUtils.selectBy(status, "0", "value");
         password.sendKeys("12345678");
         confirmPassword.sendKeys("12345678");
         saveButton.click();
+    }
+
+    public boolean validationTheEmployeeIsCreated(String username) {
+        for(WebElement name:allNames){
+            if (name.getText().trim().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void selectUserRole(String roleName,WebDriver driver){
+        BrowserUtils.selectBy(userRoleBox,roleName,"text");
+        BrowserUtils.clickWithJs(driver,searchBox);
+    }
+
+    public  boolean validateRoleText(String roleName){
+        for (WebElement role:alltheRoles){
+            if (!role.getText().trim().equals(roleName)){return false;}
+        }
+        return true;
     }
 }

@@ -1,6 +1,6 @@
 package Iframe;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,7 @@ public class IframeTask {
         WebElement pavilion = driver.findElement(By.xpath("//*[contains(text(),'Pavilion')]"));
         pavilion.click();
         Thread.sleep(400);
-        BrowserUtil.switchBetweenTwoTabs(driver, main);
+        BrowserUtils.switchBetweenTwoTabs(driver, main);
         Actions actions = new Actions(driver);
         WebElement selenium = driver.findElement(By.xpath("//*[@id='primary-menu']//span[.='Selenium']//.."));
         actions.moveToElement(selenium).perform();
@@ -32,18 +32,18 @@ public class IframeTask {
         WebElement actualTextElement = driver.findElement(By.tagName("h1"));
         String expected = "Selenium-Java Tutorial – Basic to Advance";
         Assert.assertEquals(actualTextElement.getText().trim(), expected);
-        BrowserUtil.switchByTitle(driver, "iframes");
+        BrowserUtils.switchByTitle(driver, "iframes");
         Thread.sleep(400);
         driver.switchTo().frame("Framename1");
         WebElement category1 = driver.findElement(By.xpath("//*[contains(text(),'Category1')]"));
         category1.click();
         Thread.sleep(400);
-        BrowserUtil.switchByTitle(driver, "Home - qavalidation");
+        BrowserUtils.switchByTitle(driver, "Home - qavalidation");
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id='bottom-bar']")).getText().trim().contains("All rights reserved | qavalidation"));
-        BrowserUtil.switchByTitle(driver, "iframes");
+        BrowserUtils.switchByTitle(driver, "iframes");
         driver.switchTo().frame("Frame2");
         Thread.sleep(400);
-        BrowserUtil.switchByTitle(driver, "SoftwareTesting Archives - qavalidation");
+        BrowserUtils.switchByTitle(driver, "SoftwareTesting Archives - qavalidation");
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://qavalidation.com/category/seleniumtesting/");
 

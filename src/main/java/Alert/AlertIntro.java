@@ -1,8 +1,7 @@
 package Alert;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +32,7 @@ public class AlertIntro {
         Assert.assertEquals(actualText,expectedText);
         alert.accept();
         WebElement message=driver.findElement(By.xpath("//p[@id='result']"));
-        String actualMessage= BrowserUtil.getTextMethod(message);
+        String actualMessage= BrowserUtils.getTextMethod(message);
         String expectedMessage="You successfully clicked an alert";
         Assert.assertEquals(actualMessage,expectedMessage);
     }
@@ -53,7 +52,7 @@ public class AlertIntro {
         Assert.assertEquals(actualText,expectedText);
         alert.dismiss();
         WebElement message=driver.findElement(By.xpath("//p[@id='result']"));
-        String actualMessage= BrowserUtil.getTextMethod(message);
+        String actualMessage= BrowserUtils.getTextMethod(message);
         String expectedMessage="You clicked: Cancel";
         Assert.assertEquals(actualMessage,expectedMessage);
     }
@@ -75,7 +74,7 @@ public class AlertIntro {
         Assert.assertEquals(actualText,expectedText);
         alert.accept();
         WebElement message=driver.findElement(By.xpath("//p[@id='result']"));
-        String actualMessage= BrowserUtil.getTextMethod(message);
+        String actualMessage= BrowserUtils.getTextMethod(message);
         String expectedMessage="You entered: Techtorial";
         Assert.assertEquals(actualMessage,expectedMessage);
     }

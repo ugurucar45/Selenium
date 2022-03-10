@@ -1,6 +1,6 @@
 package SelectClass;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,13 +19,13 @@ public class MultiSelect {
         driver.manage().window().maximize();
 
         WebElement header=driver.findElement(By.id("techtorial1"));
-        BrowserUtil.getTextMethod(header);//header.getText().trim();
+        BrowserUtils.getTextMethod(header);//header.getText().trim();
 
 
         WebElement multiSelectBox=driver.findElement(By.xpath("//select[@class='select']"));
-        BrowserUtil.selectBy(multiSelectBox,"Two","text");
-        BrowserUtil.selectBy(multiSelectBox,"3","index");
-        BrowserUtil.selectBy(multiSelectBox,"4","value");
+        BrowserUtils.selectBy(multiSelectBox,"Two","text");
+        BrowserUtils.selectBy(multiSelectBox,"3","index");
+        BrowserUtils.selectBy(multiSelectBox,"4","value");
 
 
         Select select=new Select(multiSelectBox);
@@ -40,7 +40,7 @@ public class MultiSelect {
         Select country=new Select(countryList);
 
 //        String actualFirstSelectedOption=country.getFirstSelectedOption().getText().trim();
-        String actualFirstSelectedOption=BrowserUtil.getTextMethod(country.getFirstSelectedOption());
+        String actualFirstSelectedOption= BrowserUtils.getTextMethod(country.getFirstSelectedOption());
         String expectedFirstSelectedOption="UNITED STATES";
         Assert.assertEquals(actualFirstSelectedOption,expectedFirstSelectedOption);
 

@@ -1,7 +1,6 @@
 package com.test.orengehrm.pages;
 
-import Utils.BrowserUtil;
-import com.test.orengehrm.TestBase;
+import Utils.BrowserUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,7 +31,7 @@ public class LoginPage  {
     }
 
     public String getErrrorMessage(){
-        return BrowserUtil.getTextMethod(errorMessage);
+        return BrowserUtils.getTextMethod(errorMessage);
     }
 
     public String getColorOfTheErrorMessage(){

@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.testng.Assert;
 
 public class TestNGAssertion {
-    //Create one method that takes two parameter and return the
+    //Create one method that takes two Parameter.xml and return the
     // multiplication of these number
 
     public int multiplication(int a,int b){

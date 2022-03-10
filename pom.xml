@@ -13,8 +13,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -23,12 +23,12 @@
     <properties>
         <java.version>1.8.0_301 </java.version>
 <!--        <artifactId>maven-compiler-plugin</artifactId>-->
-<!--        <configuration>-->
+<!--        <configuration.properties>-->
 <!--            <maven.compiler.source>1.8.0_301</maven.compiler.source>-->
 <!--            <maven.compiler.target>1.8.0_301</maven.compiler.target>-->
 <!--            <maven.compiler.source>16</maven.compiler.source>-->
 <!--            <maven.compiler.target>16</maven.compiler.target>-->
-<!--        </configuration>-->
+<!--        </configuration.properties>-->
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -55,6 +55,19 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.0.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.2.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.2.3</version>
+        </dependency>
+
 
     </dependencies>
 

@@ -1,6 +1,6 @@
 package WindowHandle;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +20,7 @@ public class SwitchWindow {
         driver.manage().window().maximize();
         System.out.println(driver.getWindowHandle());
         WebElement clickhere = driver.findElement(By.xpath("//a[.='Click Here']"));
-        BrowserUtil.clickWithJs(driver, clickhere);
+        BrowserUtils.clickWithJs(driver, clickhere);
         System.out.println(driver.getWindowHandles());
 
         String mainPageId = driver.getWindowHandle();
@@ -46,9 +46,9 @@ public class SwitchWindow {
         driver.manage().window().maximize();
         String mainPageId = driver.getWindowHandle();
         WebElement clickhere = driver.findElement(By.xpath("//*[@id='newTabBtn']"));
-        BrowserUtil.clickWithJs(driver, clickhere);
+        BrowserUtils.clickWithJs(driver, clickhere);
 
-        BrowserUtil.switchBetweenTwoTabs(driver,mainPageId);
+        BrowserUtils.switchBetweenTwoTabs(driver,mainPageId);
 //        Set<String> allPagesId = driver.getWindowHandles();
 //
 //        for (String id : allPagesId) {

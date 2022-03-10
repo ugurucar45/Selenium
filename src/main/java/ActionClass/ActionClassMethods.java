@@ -1,9 +1,7 @@
 package ActionClass;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.PolyUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -49,8 +47,8 @@ public class ActionClassMethods {
         for (int i = 0; i < pictures.size(); i++) {
             Thread.sleep(2000);
             actions.moveToElement(pictures.get(i)).perform();       //hover over here
-            System.out.println(BrowserUtil.getTextMethod(names.get(i)));//get text here
-            Assert.assertEquals(BrowserUtil.getTextMethod(names.get(i)), expectedNames.get(i));
+            System.out.println(BrowserUtils.getTextMethod(names.get(i)));//get text here
+            Assert.assertEquals(BrowserUtils.getTextMethod(names.get(i)), expectedNames.get(i));
         }
 
 

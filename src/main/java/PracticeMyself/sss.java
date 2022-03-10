@@ -1,6 +1,6 @@
 package PracticeMyself;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,23 +29,23 @@ public class sss {
         driver.manage().window().maximize();
 
         WebElement new_used = driver.findElement(By.xpath("//select[@id='make-model-search-stocktype']"));
-        BrowserUtil.selectBy(new_used, "cpo", "value");
+        BrowserUtils.selectBy(new_used, "cpo", "value");
         Thread.sleep(500);
 
         WebElement make = driver.findElement(By.xpath("//select[@id='makes']"));
-        BrowserUtil.selectBy(make, "toyota", "value");
+        BrowserUtils.selectBy(make, "toyota", "value");
         Thread.sleep(400);
 
         WebElement model = driver.findElement(By.xpath("//select[@id='models']"));
-        BrowserUtil.selectBy(model, "Corolla", "text");
+        BrowserUtils.selectBy(model, "Corolla", "text");
         Thread.sleep(400);
 
         WebElement MaxPrice = driver.findElement(By.xpath("//select[@id='make-model-max-price']"));
-        BrowserUtil.selectBy(MaxPrice, "30000", "value");
+        BrowserUtils.selectBy(MaxPrice, "30000", "value");
         Thread.sleep(4000);
 
         WebElement distance = driver.findElement(By.xpath("//select[@id='make-model-maximum-distance']"));
-        BrowserUtil.selectBy(distance, "40", "value");
+        BrowserUtils.selectBy(distance, "40", "value");
         Thread.sleep(400);
 
         WebElement zipCode = driver.findElement(By.xpath("//input[@id='make-model-zip']"));

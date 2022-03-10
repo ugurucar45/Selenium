@@ -1,6 +1,6 @@
 package FileUpload;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public class FileUploadPractice {
 
         WebElement text1=driver.findElement(By.xpath("//h3"));
         String expected1="File Uploaded!";
-        Assert.assertEquals(BrowserUtil.getTextMethod(text1),expected1);
+        Assert.assertEquals(BrowserUtils.getTextMethod(text1),expected1);
         WebElement picText=driver.findElement(By.id("uploaded-files"));
         String expected2="turkey.png";
         Assert.assertEquals(picText.getText().trim(),expected2);

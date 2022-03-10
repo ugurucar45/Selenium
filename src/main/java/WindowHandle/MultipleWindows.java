@@ -1,6 +1,6 @@
 package WindowHandle;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 public class MultipleWindows {
 
@@ -21,7 +19,7 @@ public class MultipleWindows {
         driver.manage().window().maximize();
         System.out.println(driver.getWindowHandle());
         WebElement clickhere = driver.findElement(By.xpath("//a[.='Click Here']"));
-        BrowserUtil.clickWithJs(driver, clickhere);
+        BrowserUtils.clickWithJs(driver, clickhere);
 
         JavascriptExecutor js= (JavascriptExecutor) driver;
         js.executeScript("window.open('https://www.techtorialacademy.com/')");
@@ -35,7 +33,7 @@ public class MultipleWindows {
 //                  break;
 //            }
 //        }
-    BrowserUtil.switchByTitle(driver,"Home Page - Techtorial");
+    BrowserUtils.switchByTitle(driver,"Home Page - Techtorial");
 
     }
 

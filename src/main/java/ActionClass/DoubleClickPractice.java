@@ -1,9 +1,7 @@
 package ActionClass;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +45,7 @@ public class DoubleClickPractice {
         WebElement source = driver.findElement(By.xpath("//*[@id='draggable']"));
         WebElement target1 = driver.findElement(By.xpath("//*[@id='droptarget']/div[1]"));
         WebElement target2 = driver.findElement(By.xpath("//*[@id='droptarget']/div[2]"));
-        String actualMessage = BrowserUtil.getTextMethod(target2);
+        String actualMessage = BrowserUtils.getTextMethod(target2);
         String expectedMessage = "... Or here.";
         Assert.assertEquals(actualMessage, expectedMessage);
         Thread.sleep(1000);
@@ -85,7 +83,7 @@ public class DoubleClickPractice {
 //        Thread.sleep(3000);
 //        acceptCookies.click();
         WebElement bluebox = driver.findElement(By.xpath("//div[@class='test1']"));
-        String actualBlueBoxMessage = BrowserUtil.getTextMethod(bluebox);
+        String actualBlueBoxMessage = BrowserUtils.getTextMethod(bluebox);
         String expectedBlueBoxMessage = "Drag the small circle here ...";
         Assert.assertEquals(actualBlueBoxMessage, expectedBlueBoxMessage);
         WebElement draggable = driver.findElement(By.xpath("//div[@id='draggable']"));

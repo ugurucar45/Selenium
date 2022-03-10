@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Set;
 
-public class BrowserUtil {
+public class BrowserUtils {
 
     public static void selectBy(WebElement element, String value, String methodName) {
 

@@ -1,6 +1,6 @@
 package Iframe;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,14 +24,14 @@ public class NestedFrame {
         WebElement middle = driver.findElement(By.name("frame-middle"));
         driver.switchTo().frame(middle);     //I am on the middle frame
         WebElement textBox=driver.findElement(By.id("content"));
-        String actualName= BrowserUtil.getTextMethod(textBox);
+        String actualName= BrowserUtils.getTextMethod(textBox);
         String expectedName="MIDDLE";
         Assert.assertEquals(actualName,expectedName);
 
         driver.switchTo().parentFrame();//if i skip this section i see NoSuchFrameException
         driver.switchTo().frame("frame-left");
         WebElement leftbox=driver.findElement(By.xpath("//body[contains(text(),'LEFT')]"));
-        String actualr=BrowserUtil.getTextMethod(leftbox);
+        String actualr= BrowserUtils.getTextMethod(leftbox);
         String expectedr="LEFT";
         Assert.assertEquals(actualr,expectedr);
 
@@ -40,7 +40,7 @@ public class NestedFrame {
         driver.switchTo().defaultContent();//means it directly goes to the HTML
         driver.switchTo().frame("frame-bottom");
         WebElement bottom=driver.findElement(By.xpath("//body[contains(text(),'BOTTOM')]"));
-        String actualB=BrowserUtil.getTextMethod(bottom);
+        String actualB= BrowserUtils.getTextMethod(bottom);
         String expectedB="BOTTOM";
         Assert.assertEquals(actualB,expectedB);
         driver.quit();

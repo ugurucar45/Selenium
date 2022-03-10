@@ -1,6 +1,6 @@
 package WindowHandle;
 
-import Utils.BrowserUtil;
+import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -32,7 +32,7 @@ public class practiceWindowHandling {
         button4.click();
         JavascriptExecutor js= (JavascriptExecutor) driver;
         Thread.sleep(1000);
-        BrowserUtil.switchByTitle(driver,"Basic Controls");
+        BrowserUtils.switchByTitle(driver,"Basic Controls");
         Thread.sleep(1000);
         WebElement firstName = driver.findElement(By.id("firstName"));
         firstName.sendKeys("Ugur");
@@ -48,7 +48,7 @@ public class practiceWindowHandling {
         button.click();
         Assert.assertEquals(driver.findElement(By.xpath("//*[@id='msg']")).getText().trim(), "Registration is Successful");
 
-        BrowserUtil.switchByTitle(driver,"AlertsDemo");
+        BrowserUtils.switchByTitle(driver,"AlertsDemo");
         Thread.sleep(400);
 
         WebElement alertBox = driver.findElement(By.xpath("//*[@id='alertBox']"));
