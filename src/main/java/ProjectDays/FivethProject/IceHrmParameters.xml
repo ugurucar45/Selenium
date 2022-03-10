@@ -1,0 +1,11 @@
+<!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >-->
+<!--<suite name="IceHrm Project">-->
+<!--    <test name="Parameter Test">-->
+<!--        <parameter name="userName" value="admin"></parameter>-->
+<!--        <parameter name="password" value="admin"></parameter>-->
+
+<!--        <classes>-->
+<!--            <class name="com.iceHrm.tests.LoginTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--</suite>-->
