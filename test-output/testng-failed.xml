@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestNG Runner Practice]">
+  <test thread-count="5" name="Orangehrn Tests(failed)">
+    <classes>
+      <class name="com.test.orengehrm.tests.AdminTest">
+        <methods>
+          <include name="validateTheCreationOfEmployeeMessage"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.test.orengehrm.tests.AdminTest -->
+    </classes>
+  </test> <!-- Orangehrn Tests(failed) -->
+  <test thread-count="5" name="Select Class Tests(failed)">
+    <classes>
+      <class name="SelectClass.DreamCars">
+        <methods>
+          <include name="BMWmyWay"/>
+        </methods>
+      </class> <!-- SelectClass.DreamCars -->
+    </classes>
+  </test> <!-- Select Class Tests(failed) -->
+</suite> <!-- Failed suite [TestNG Runner Practice] -->
