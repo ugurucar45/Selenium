@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import utils.ConfigReader;
-import utils.DriverHelper;
+import Utils.ConfigReader;
+import Utils.DriverHelper;
 
 public class TestBase {
     public WebDriver driver;
