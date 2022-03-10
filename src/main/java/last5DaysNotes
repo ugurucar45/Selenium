@@ -1,0 +1,209 @@
+ALL SUBLIME FROM BEGINNING:
+2/28/22 MONDAY
+1. AGENDA
+What is JIRA
+ Jira practice
+Automation Jira Practice
+What is JIRA
+its own by ATLASIAN
+Its not a free tool.
+Jira is designed based on Agile. In Jira we have RoadMap, Backlog and Board
+We can create a Epic, US, Task, Bug, Test  ticket on JIRA.
+Since Jira doesnt have a test execution power, a lot of comnpanies use different pluging for Manual test execution. Xray, QMetry are some of the plugins that being used for test execuution.
+Bugzilla
+Rally
+ClickUP
+Azure DevOps
+Create a bug ticket on jira and link to the TEC-48
+Create a bug ticket on jira and link to the TEC-11
+Create a bug ticket on Jira for Teslashop checkout action
+HOMEWORK
+1. Write your PI objective
+2. Write your US, AC, Test cases in Jira or ClickUP
+3. Write your Test Scenario and Test Script with Java+Selenium WebDriver.
+Everything has to be done with SAFe Agile.
+==========================================
+3/1/2022
+TUESDAY:
+POM:
+TESTNG.XML--> WE CAN EXECUTE OUR ALL TESTS(REGRESSION TEST) FROM XML FILE.
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+  <SUITE>
+    <TEST>
+      <CLASSES>
+         CLASS NAME="PATH OF THE TEST"
+ NOTE: HOW DO YOU GET REPORTS FROM TESTNG?
+ -->TO be able to get the report you must add configuration(LISTENERS)
+    -->EmailableReporter
+    -->FailedReporter
+ NOTE:How to run only failed scenarious in TESTNG?
+ for our xml file I can add the failed reporter listener.It will generate one xml file that stores all failed tests annotations.Using this xml file, I can RE-RUN the only failed scenarious.
+ TESTNG ANNOTATIONS:
+ -Test --> it executes the codes
+ -BeforeMethod --> it will run before each test annotation
+ -AfterMethod --> it will run after each test annotation
+ -BeforeClass -->it will run before everything inside the class ONE TIME
+ -AfterClass -->it will run after everything inside the class ONE TIME
+ -BeforeTest -->it will run before @beforeclass annotation ONE TIME.
+ -AfterTest -->it will run after @afterclass annotation ONE TIME.
+ -BeforeSuite -->it will run before @beforetest annotation ONE TIME
+ -AfterSuite --> it will run after @aftertest annotation ONE TIME.
+ INTERVIEW QUESTIONS:
+ *What type of TestNG annotations do you use in your framework ?
+ Answer:I use mostly @Test, @AfterMethod,@BeforeMethod,@AfterClass,@BeforeClass
+ *Are you familiar with @BeforeSuite and @AfterSuite ?
+ Answer yes: BeforeSuites runs @beforeTest annotation ONE TIME
+             AfterSuitest runs @afterTest Annotation ONE TIME
+        no:I never used this annotation in my project.
+ @PARAMETER ANNOTATION: We can give parameter values using xml.file To do that we should use the @parameter annotation inside the test class with Test annotation.
+=======================================================================
+3/2/2022
+RECAP:
+WEDNESDAY:
+TestNG Annotations:
+BeforeSuite-->Once
+AfterSuite --> Once
+BeforeTest -->Once
+AfterTest-->Once
+BeforeClass-->Once
+AfterClass -->Once
+BeforeMethod -->as many as you have test annotations
+AfterMethod -->As many as you have test annotations
+Test -->as many as you want
+@Parameters-->Using parameter annotation we can provide parameter into the
+@Test Annotation
+This if for the one parameter
+ @Parameters("FirstName")//if it is just one
+    @Test(priority = 1,invocationCount = 10)
+    public void test2(String name){
+        System.out.println(name);
+    }
+//If you have more than 1 parameter
+    @Parameters({"City","State"})//if it is more than 1
+    @Test(priority = 2,invocationTimeOut = 2000)//it will wait for 2 sec then fail
+    public void test1(String city,String state){
+        System.out.println(city);
+        System.out.println(state);
+    }
+   @Parameters("LastName")/
+    @Test(priority = 1,invocationCount = 10)
+    public void test2(String lastname){
+        System.out.println(name);
+    }
+    Singleton Design Pattern:
+    --is a way to make your driver more useful,protected and professional
+    -->WebDriver driver= new ChromeDriver();
+NOTE:We do not want to create more than one browser for same test execution because of thet we should create singleton desing pattern.(Creating new driver all the time will consume your system memory)
+NOTE 2:If the driver is instantiated, singleteon design will check the condition if it is not instantiated it will instantiate again.
+SINGLETON DESING PATTERN RULES:
+1-Your webdriver will be PRIVATE
+  *It is private because we do not want anyone to give value of the variable directly.
+2-Private Constructor:
+  *We do not want anyone to use constructor to give the value to the instance variable.(We do not want anyone to create an object from that class.)
+3-public method to access private variable.
+*We use public method to instantiate the variable and provide condition to check it is already instantiated driver or not.
+========================================================================
+CONFIGURATION PROPERTIES:
+We can provide some string values inside this properties file.Then we can use them inside the framework.
+username-password
+=URL or different domain, dev, test, staging,
+=easy way to centralize your data
+=Browser names
+NOTE:Using properties we can provide our configuration values.In this way,my configuration settings will be managed under one location.
+TAKE SCREENSHOT:
+((TakeScreenShot)driver).getScreenShotAs
+NOTE: String location=System.getProperty("user.dir")//it will return the project location.
+=======================================================================
+3/5/2022
+Saturday(Recap)
+1)Singleton Pattern Desing(Driver):
+ *We made our driver variable private static(private static WebDriver driver;)
+ *We made our constructor private(private DriverHelper(){});
+ *we created public method for the driver(public static WebDriver getDriver(){)
+ *We instantiate our driver with a specific condition(if(driver==null){);
+2)Configuration properties:
+ *environments(dev,sit,uat,prod,qa)
+ *baseUrl
+ *username,password
+ *Token(Api special code)
+     First Step;Create a configuration.properties file under the whole project.
+     Second Step:You need to create a ConfigReader class to read the data.(UTILS)
+      public static String readProperty(String key){
+        //File class assign given file to the java object
+        File file =new File("configuration.properties");
+        Properties properties = new Properties();
+        //properties object will read the properties file
+        try {
+            properties.load((new FileInputStream(file)));
+            //load method will load every value from file object to the
+            //properties object.
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //more actions surround by try and catch.
+        return properties.getProperty(key);
+        //I can read the value from properties object using the key.
+    }
+    3)TakeScreenShot()
+      @AfterMethod
+    public void tearDown(ITestResult result){
+        if(!result.isSuccess()){
+            BrowserUtils.getScreenshot(driver,"OrangeHrmScreenShot");
+        }
+        DriverHelper.tearDown();
+    }
+    ================================================================
+    DataProviderAnnotation:
+    We use data provider annotation to run the same Test annotation multiple times with a different set of data.
+    ?How do you guys run multiple times the same set of data.(INVOCATION COUNT)
+    SELENIUM WAITS:
+    1)ImplicityWait:
+    It will wait to load for the whole page elements that driver is pointing out.(It only waits the elements that you have in your page class (Find By))
+    For example: you have 5 find by elements in login page.This wait type will wait only for these 5 elements to be loaded.
+    driver.manage().timeouts().implicitlyWait(Duration.ofSecond(7));
+    //it will wait 7 seconds for the elements that driver is pointing out. If the elements are loaded in 1 sec,2,3,4,5,6 it will continue executing the codes.It means it will max wait 7 sec for the elements.If elements cannot be loaded in 7 seconds, it will throw an no such element exception.
+   Your question: what is the difference between implicitWait and Thread.sleep(7)
+   *Thread.sleep will wait 7 sec no matter what. Even though all elements are loaded in 2 sec, it will still wait 5 more second for the execution
+   *Implicitly wait will wait max 7 sec but if the elements are loaded in 2 sec, it will not wait extra 5 sec for the execution.It will immediately executes the code once the element is ready.
+   ============================================================================
+   3/6/2022
+   Sunday
+   DataProviderAnnotation:
+   *We use data provider annotation to RUN THE SAME TEST ANNOTATION MULTIPLE TIMES WITH A DIFFERENT SET OF DATA.
+
+    @DataProvider(name = "UserRoles")
+    public Object [][] getUserRolesData(){
+        return new Object[][]{
+                {"Admin"},
+                {"ESS"}
+        };
+         @Test(dataProvider = "UserRoles",dataProviderClass = DataForLoginNegativeTest.class)
+    public void ValidateTheSelectRoleFunctions(String roleName){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login(ConfigReader.readProperty("orangehrmusername"),ConfigReader.readProperty("orangehrmpassword"));
+        MainPage mainPage=new MainPage(driver);
+        mainPage.clickAdminButton();
+        AdminPage adminPage=new AdminPage(driver);
+        adminPage.selectUserRole(roleName,driver);
+        Assert.assertTrue(adminPage.validateRoleText(roleName));
+    }
+WAIT TIMES:
+1)Implicitly Wait: It will wait to load for the whole page elements that the driver is poing to do.
+-->driver.manage().timeouts().implicitlyWait(Duration.ofSecond(10));
+-->it will throw nosuchelement exception after 10 sec in this scenario.
+2)Explicitly Wait: It will wait only for one element until the given condition is successfully completed.
+->element to be visible(most common one)
+-->element is invisible
+-->element is clickable(second common one)
+    WebDriverWait wait =new WebDriverWait(driver,timeUnitSec);
+    wait.until(ExpectedCondition.visibilityOfElement(Webelement))
+    It will throw timeoutException if the element is not loaded in given time
+3)Fluently Wait:
+
+    We have one smaller time unit that check the element each time until max time reached.If we cannot find the element till max time, it will throw TimeoutException.
+    Wait<WebDriver> wait=new FluentWait<>().pollingEvery(Duration.ofSecond(3))
+                            .waitMessage("It failed every 3 sec ")
+                            .withTimeout(Duration.ofSecond(10))
+                            .ignoring(Exception.class);
+                        wait.until(myDriver --> driver.findElement(By.""))
+                        //lambda expression

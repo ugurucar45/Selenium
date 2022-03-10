@@ -1,0 +1,64 @@
+CUCUMBER
+3/8/2022
+Tuesday:
+Cucumber: is a bridge between technical and non-technical people
+Bookish Cucumber: is a layer in our testing, that we add to explain a behaviour of the code in simple english.
+Originally it is written for Ruby Language and improved to use other languages as well like JAva,C++, JS...etc
+Key Words For CUCUMBER:
+1-Feature:is a definition of what feature of application we are testing.
+
+2-Scenario:Test Cases:
+3-Given:precondition/prerequisite
+        -exp;to be able to write codes (intellij,java,computer,keyboard)-->optional
+4-When(*): action.This keyword is used to perform some action.
+5-Then :result of your action.
+EXAMPLE:
+    Given I launched chrome browser
+    When I navigate to facebook.com
+    Then page title is "Facebook"
+    When I try to login with invalid credentials on facebook
+    Then I validate the error message.
+    Given I logged in the Amazon.com
+    When I place the order
+    Then I get the confirmation message
+    Given I am authorized to work in USA
+    When I apply for job to work
+    Then I get some offers and accept one of them.
+    ?? What if I have more actions or results.
+    Given I am authorized to work in USA
+    When I apply for job to work
+    When I attend the interview
+    Then I get some offers and accept one of them.
+    Then I bought a house
+    Then I got robbed.
+    -And ---> logical and it comes with the more actions and results
+    Given I am in USA
+    And I am authorized to work in USA
+    When I apply for SDET
+    And I successfully pass an interview
+    Then I can start making money
+    And I can save some money for retirement.
+    --But-->logical but, used for negative scenario
+    Given I am authorized to work in USA
+    When I apply for job to work
+    And I attend the interview
+    Then I get some offers and accept one of them.
+    And I bought a house
+    But, I got broke.
+    ================================
+    FLOW FOR THE PRACTICE:
+    Feature: Testing the Facebook Website signup functionality
+//Bad example
+     Scenario:Facebook Sign up
+     Given user is on facebook.com
+     And user clicks on the sign up button
+     And user enters first name
+     And user enters last name
+     And user enters  e-mail
+     When user clicks on sign up now button
+     Then user gets a success message.
+//Good example
+    Given user is on facebook sign up page
+    When user fills up all information for sing up
+    And clicks the sign up button
+    Then user gets a success message
